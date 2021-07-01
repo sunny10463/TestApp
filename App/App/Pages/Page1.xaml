@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             xmlns:vm="clr-namespace:App.ViewModels"
+             x:Class="App.Pages.Page1">
+    <ContentPage.BindingContext>
+        <vm:VM/>
+    </ContentPage.BindingContext>
+
+
+    <dg:DataGrid x:Name="grid" ItemsSource="{Binding List}">
+        <dg:DataGrid.HeaderFontSize>
+            <OnIdiom x:TypeArguments="x:Double">
+                <OnIdiom.Tablet>15</OnIdiom.Tablet>
+                <OnIdiom.Phone>15</OnIdiom.Phone>
+            </OnIdiom>
+        </dg:DataGrid.HeaderFontSize>
+
+        <dg:DataGrid.Columns>
+            <dg:DataGridColumn Title="No" PropertyName="A" Width="1*"/>
+            <dg:DataGridColumn Title="B" PropertyName="B" Width="1*"/>
+            <dg:DataGridColumn Title="C" PropertyName="C" Width="1*" >
+                <dg:DataGridColumn.CellTemplate>
+                    <DataTemplate>
+                        <Entry Text="{Binding .}" StyleClass="EditClass" Keyboard="Numeric" />
+                    </DataTemplate>
+                </dg:DataGridColumn.CellTemplate>
+            </dg:DataGridColumn>
+            <dg:DataGridColumn Title="D" PropertyName="D" Width="1*">
+                <dg:DataGridColumn.CellTemplate>
+                    <DataTemplate>
+                        <Entry Text="{Binding .}" StyleClass="EditClass" Keyboard="Numeric" />
+                    </DataTemplate>
+                </dg:DataGridColumn.CellTemplate>
+            </dg:DataGridColumn>
+            <dg:DataGridColumn Title="E" PropertyName="E" BindingContext="{Binding Total}" Width="1*"/>
+        </dg:DataGrid.Columns>
+        <dg:DataGrid.RowsBackgroundColorPalette>
+            <dg:PaletteCollection>
+                <Color>#F2F2F2</Color>
+                <Color>#FFFFFF</Color>
+            </dg:PaletteCollection>
+        </dg:DataGrid.RowsBackgroundColorPalette>
+    </dg:DataGrid>
+</ContentPage>

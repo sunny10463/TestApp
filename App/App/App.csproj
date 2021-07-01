@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Dtata\**" />
+    <Compile Remove="Menu\**" />
+    <EmbeddedResource Remove="Dtata\**" />
+    <EmbeddedResource Remove="Menu\**" />
+    <None Remove="Dtata\**" />
+    <None Remove="Menu\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\CustomerInfo.xaml.cs" />
+    <Compile Remove="Pages\CustomerList.xaml.cs" />
+    <Compile Remove="Pages\ItemInfo.xaml.cs" />
+    <Compile Remove="Pages\ItemList.xaml.cs" />
+    <Compile Remove="Pages\MainPage.xaml.cs" />
+    <Compile Remove="Pages\ShipList.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Pages\CustomerInfo.xaml" />
+    <EmbeddedResource Remove="Pages\CustomerList.xaml" />
+    <EmbeddedResource Remove="Pages\ItemInfo.xaml" />
+    <EmbeddedResource Remove="Pages\ItemList.xaml" />
+    <EmbeddedResource Remove="Pages\MainPage.xaml" />
+    <EmbeddedResource Remove="Pages\ShipList.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.Forms.DataGrid" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\Page1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
